@@ -27,66 +27,37 @@ btnPlay.addEventListener('click',
             myContainer.style.height = "100%";
 
             // creare array di numeri random
-            let arrBox = genArrNumRandom(100, 1, 100);
-            console.log(arrBox);
+            const arrBomb = genArrNumRandom(16, 1, 100);
+            console.log(arrBomb);
 
             for (let i = 1; i <= 100; i++) {
+            
+                let newElem = box("div", "square");
+                myContainer.appendChild(newElem);
+                newElem.classList.add("easy");
 
-                let newElem = box();
+                newElem.innerHTML = arrBomb[i];
+                console.log(newElem);
+
                 newElem.addEventListener("click",
-                        function(){
-                            newElem.classList.toggle("clicked");
+                    function(){
+                        if(arrBomb.includes(i)) {
+                            newElem.classList.add("bomb");
+                            console.log("Levello easy, elemento selzionato: ", i);
+                        }else{
+                            newElem.classList.remove("bomb");
+                            newElem.classList.add("safe");
                             console.log("Levello easy, elemento selzionato: ", i);
                         }
-                    );
-                
-                myContainer.appendChild(newElem);
-                newElem.append(i);
-                newElem.classList.add("easy");
+                    }
+                );
             }
         }
 
         // medium level
-        if(level === "medium") {
-
-            myContainer.innerHTML = '';
-            
-            for (let i = 1; i <= 81; i++) {
         
-                let newElem = box();
-                newElem.addEventListener("click",
-                        function(){
-                            newElem.classList.toggle("clicked");
-                            console.log("Levello medium, elemento selzionato: ", i);
-                        }
-                    );
-                
-                myContainer.appendChild(newElem);
-                newElem.append(i);
-                newElem.classList.add("medium");
-            }
-        }
 
         // hard level
-        // medium level
-        if(level === "hard") {
-
-            myContainer.innerHTML = '';
-
-            for (let i = 1; i <= 49; i++) {
         
-                let newElem = box();
-                newElem.addEventListener("click",
-                        function(){
-                            newElem.classList.toggle("clicked");
-                            console.log("Levello hard, elemento selzionato: ", i);
-                        }
-                    );
-                
-                myContainer.appendChild(newElem);
-                newElem.append(i);
-                newElem.classList.add("hard")
-            }
-        }
     }
 );

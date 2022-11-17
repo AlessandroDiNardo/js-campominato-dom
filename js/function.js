@@ -9,6 +9,10 @@ function box() {
     return elem;
 }
 
+// funzine generatore random num
+function randomNum(min, max) {
+    return (Math.floor(Math.random() * ((max + 1) - min) + min));
+}
 
 // funzione che crea un array di numeri random unici
 function genArrNumRandom(howMany, minNum, maxNum) {  
@@ -23,9 +27,6 @@ function genArrNumRandom(howMany, minNum, maxNum) {
             newArr.push(newNum);
         }
     }
-}
 
-// funzine generatore random num
-function randomNum(min, max) {
-    return (Math.floor(Math.random() * ((max + 1) - min) + min));
+    return newArr;
 }

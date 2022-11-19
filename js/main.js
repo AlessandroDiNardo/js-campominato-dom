@@ -36,7 +36,7 @@ btnPlay.addEventListener('click',
                 myContainer.appendChild(newElem);
                 newElem.classList.add("easy");
 
-                newElem.innerHTML = arrBomb[i];
+                // newElem.innerHTML = arrBomb[i];
                 console.log(newElem);
 
                 newElem.addEventListener("click",
@@ -44,6 +44,8 @@ btnPlay.addEventListener('click',
                         if(arrBomb.includes(i)) {
                             newElem.classList.add("bomb");
                             console.log("Levello easy, elemento selzionato: ", i);
+                            alert("hai perso");
+                            window.location.reload();
                         }else{
                             newElem.classList.remove("bomb");
                             newElem.classList.add("safe");
@@ -55,9 +57,76 @@ btnPlay.addEventListener('click',
         }
 
         // medium level
-        
+        if(level === "medium") {
+
+            myContainer.innerHTML = '';
+            myContainer.style.height = "100%";
+
+            // creare array di numeri random
+            const arrBomb = genArrNumRandom(16, 1, 81);
+            console.log(arrBomb);
+
+            for (let i = 1; i <= 81; i++) {
+            
+                let newElem = box("div", "square");
+                myContainer.appendChild(newElem);
+                newElem.classList.add("medium");
+
+                // newElem.innerHTML = arrBomb[i];
+                console.log(newElem);
+
+                newElem.addEventListener("click",
+                    function(){
+                        if(arrBomb.includes(i)) {
+                            newElem.classList.add("bomb");
+                            console.log("Levello medium, elemento selzionato: ", i);
+                            alert("hai perso");
+                            window.location.reload();
+                        }else{
+                            newElem.classList.remove("bomb");
+                            newElem.classList.add("safe");
+                            console.log("Levello medium, elemento selzionato: ", i);
+                        }
+                    }
+                );
+            }
+        }
 
         // hard level
-        
+        if(level === "hard") {
+
+            myContainer.innerHTML = '';
+            myContainer.style.height = "100%";
+
+            // creare array di numeri random
+            const arrBomb = genArrNumRandom(16, 1, 49);
+            console.log(arrBomb);
+
+            for (let i = 1; i <= 49; i++) {
+            
+                let newElem = box("div", "square");
+                myContainer.appendChild(newElem);
+                newElem.classList.add("hard");
+
+                // newElem.innerHTML = arrBomb[i];
+                console.log(newElem);
+
+                newElem.addEventListener("click",
+                    function(){
+                        if(arrBomb.includes(i)) {
+                            newElem.classList.add("bomb");
+                            console.log("Levello hard, elemento selzionato: ", i);
+                            alert("hai perso");
+                            window.location.reload();
+                        }else{
+                            newElem.classList.remove("bomb");
+                            newElem.classList.add("safe");
+                            console.log("Levello hard, elemento selzionato: ", i);
+                            
+                        }  
+                    }
+                );
+            }
+        }
     }
 );
